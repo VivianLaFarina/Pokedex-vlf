@@ -1,6 +1,20 @@
+import { useDispatch } from 'react-redux'
 import Footer from '../components/Footer'
+import { setNameTrainer } from '../store/slices/nameTrainer.slice'
+
 
 const Home = () => {
+
+    const dispatch = useDispatch()
+
+    const handlesubmit = (e) => {
+    e.preventDefault()
+    dispatch(setNameTrainer(e.target.nameTrainer.value))
+
+
+
+}
+
   return (
     <section className=' min-h-screen grid grid-rows-[1fr_auto]'>
         {/* Top Seccion */}
@@ -11,12 +25,12 @@ const Home = () => {
                 </div>
                 <h2>Hellor trainer</h2>
                 <p>To start, Identify Yourself </p>
-                 <div>
-                    <input type="text" placeholder='Your Name...' />
+                 <form onSubmit={handlesubmit}>
+                    <input id='nameTrainer' type="text" placeholder='Your Name...' />
                     <button>start</button>
-                 </div>
+                 </form>
 
-            </article>
+            </article >
         </section>
                 {/* Footer */}
                 < Footer />
