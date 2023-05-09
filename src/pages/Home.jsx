@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { setNameTrainer } from '../store/slices/nameTrainer.slice'
 
@@ -7,9 +8,13 @@ const Home = () => {
 
     const dispatch = useDispatch()
 
+    const navigate = useNavigate()
+
     const handlesubmit = (e) => {
     e.preventDefault()
     dispatch(setNameTrainer(e.target.nameTrainer.value))
+
+
 
 
 
@@ -23,8 +28,8 @@ const Home = () => {
                 <div>
                     <img src="/images/pokedex.png" alt="" />
                 </div>
-                <h2>Hellor trainer</h2>
-                <p>To start, Identify Yourself </p>
+                <h2>Hellor trainer !</h2>
+                <p> To start, Identify Yourself </p>
                  <form onSubmit={handlesubmit}>
                     <input id='nameTrainer' type="text" placeholder='Your Name...' />
                     <button>start</button>

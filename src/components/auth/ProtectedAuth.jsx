@@ -1,19 +1,17 @@
 import { useSelector } from "react-redux"
-import { Outlet } from "react-router-dom"
-import store from "../../store"
+import { Navigate, Outlet } from "react-router-dom"
+
 
 const ProtectedAuth = () => {
 
  const nameTrainer= useSelector((store)=> store.nameTrainer)
 
-if(nameTrainer){
-    return <Outlet />
-}
+  if(nameTrainer){
+    return <Outlet /> 
+  }  else {
+    return <Navigate to="/" />
 
-
-  return (
-    <div>ProtectedAuth</div>
-  )
+    }
 }
 
 export default ProtectedAuth
