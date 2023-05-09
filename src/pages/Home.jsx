@@ -16,22 +16,17 @@ const Home = () => {
     navigate('/pokedex')
 
 
-
-
-
-
-
 }
 
   return (
-    <section className=' min-h-screen grid grid-rows-[1fr_auto]'>
+    <section className=' min-h-screen grid grid-rows-[1fr_auto] items-center py-4'>
         {/* Top Seccion */}
-        <section>
-            <article>
-                <div>
+        <section className='p-5'>
+            <article >
+                <div className='max-w-[250px] sm:max-w-[500px] px-1 '>
                     <img src="/images/pokedex.png" alt="" />
                 </div>
-                <h2>Hellor trainer !</h2>
+                <h2> Hellor trainer !</h2>
                 <p> To start, Identify Yourself </p>
                  <form onSubmit={handlesubmit}>
                     <input id='nameTrainer' type="text" placeholder='Your Name...' />
@@ -39,7 +34,8 @@ const Home = () => {
                  </form>
 
             </article >
-        </section>
+     </section>
+
                 {/* Footer */}
                 < Footer />
                 
