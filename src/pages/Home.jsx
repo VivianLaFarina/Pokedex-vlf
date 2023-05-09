@@ -13,6 +13,9 @@ const Home = () => {
     const handlesubmit = (e) => {
     e.preventDefault()
     dispatch(setNameTrainer(e.target.nameTrainer.value))
+    navigate('/pokedex')
+
+
 
 
 
