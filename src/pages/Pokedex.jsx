@@ -28,7 +28,7 @@ const Pokedex = () => {
 
         <form action="">
           <div>
-            <input type="text" placeholder='Search your Pokermon'/>
+            <input type="text" placeholder='Search your Pokemon'/>
             <button>Search</button>
           </div>
           <select>
@@ -39,7 +39,7 @@ const Pokedex = () => {
          {/* Pokemon list Seccion  */}
         </section>
         {
-          pokemons.map(pokemon => <PokemonCard /> )
+          pokemons.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} /> )
         }
 
 

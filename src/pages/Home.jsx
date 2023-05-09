@@ -19,7 +19,7 @@ const Home = () => {
 }
 
   return (
-    <section className=' min-h-screen grid grid-rows-[1fr_auto] items-center py-4'>
+    <section className=' min-h-screen grid grid-rows-[1fr_auto] items-center py-10'>
         {/* Top Seccion */}
         <section className='p-5'>
             <article >
