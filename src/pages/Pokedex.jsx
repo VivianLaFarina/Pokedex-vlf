@@ -35,12 +35,15 @@ const Pokedex = () => {
             <option value=""> All </option>
           </select>
         </form>
-        <section>
-         {/* Pokemon list Seccion  */}
-        </section>
-        {
+                 {/* Pokemon list Seccion  */}
+
+        <section className='px-2'>
+
+         {
           pokemons.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} /> )
         }
+        </section>
+
 
 
       </section>
