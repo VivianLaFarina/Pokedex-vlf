@@ -6,9 +6,20 @@ import PokemonCard from '../components/pokedex/PokemonCard'
 
 const Pokedex = () => {
   const [pokemons, setPokemons] = useState([])
+  const [pokemonName, setPokemonName] = useState("")
 
 
   const nameTrainer = useSelector(store => store.nameTrainer)
+
+  const handleSubmit = (e) => {
+    e.preventDefault() 
+    setPokemonName(e.target.pokemonName.value)
+
+  }
+
+  const pokemonsByName = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(pokemonName.toLowerCase()))
+
+
   useEffect (() =>  {
     const URL = "https://pokeapi.co/api/v2/pokemon"
     axios.get(URL)
@@ -26,9 +37,9 @@ const Pokedex = () => {
       <section className='py-6 px-7'>
         <h3>Welcome {nameTrainer}, Here you can find your favorite Pokemon!</h3>
 
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div>
-            <input type="text" placeholder='Search your Pokemon'/>
+            <input id='pokemonName' type="text" placeholder='Search your Pokemon'/>
             <button>Search</button>
           </div>
           <select>
@@ -40,7 +51,7 @@ const Pokedex = () => {
         <section className='px-2 py-10 grid gap-6 grid-cols-1-[300px]'>
 
          {
-          pokemons.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} /> )
+          pokemonsByName.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} /> )
         }
         </section>
 
