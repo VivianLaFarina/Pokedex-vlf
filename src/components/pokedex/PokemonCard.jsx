@@ -6,19 +6,19 @@ const bordersByType = {
   grass: 'border-green-500',
   fire: 'border-red-600',
   water: 'border-sky-500',
-  electric: 'border-yellow-300',
+  electric: 'border-yellow-100',
   ice: 'border-cyan-300',
   fighting: 'border-yellow-500',
   poison: 'border-purple-900',
-  ground: 'border-amber-500',
+  ground: 'border-zinc-500',
   flying: 'border-yellow-200',
-  psychic: 'border-pink-500',
-  bug: 'border-green-500',
-  rock: 'border-blue-500',
-  ghost: 'border-purple-500',
-  dragon: 'border-orange-500',
-  dark: 'border-black-500',
-  steel: 'border-rock-500',
+  psychic: 'border-fuchsia-500',
+  bug: 'border-green-800',
+  rock: 'border-zinc-600',
+  ghost: 'border-purple-950',
+  dragon: 'border-orange-700',
+  dark: 'border-violet-900',
+  steel: 'border-slate-400',
   fairy: 'border-pink-500',
   normal: 'border-yellow-300',
 }
@@ -27,23 +27,23 @@ bordersByType["grass"]
 
 const backgroundByType = {
   grass:  'from-green-400 to-yellow-100',
-  fire: ' from-red-400 to-orange-300',
-  water: ' from-sky-400 to-cyan-100',
-  electric: ' from-yellow-300 to-yellow-50',
+  fire: ' from-red-400 to-orange-100',
+  water: ' from-sky-400 to-cyan-50',
+  electric: ' from-yellow-200 to-yellow-50',
   ice: ' from-blue-700 to-cyan-50',
   fighting: ' from-orange-700 to-yellow-400',
   poison: ' from-purple-800 to-violet-200',
-  ground: ' from-yellow-400 to-yellow-100',
+  ground: ' from-neutral-500 to-stone-200',
   flying: ' from-amber-400 to-amber-100',
-  psychic: ' from-pink-400 to-yellow-100',
-  bug: ' from-green-400 to-yellow-100',
-  rock: ' from-blue-400 to-yellow-100',
-  ghost: ' from-purple-400 to-yellow-100',
-  dragon: ' from-pink-400 to-yellow-100',
-  dark: ' from-red-400 to-yellow-100',
-  steel: ' from-yellow-400 to-yellow-100',
+  psychic: ' from-fuchsia-400 to-pink-100',
+  bug: ' from-green-700 to-teal-50',
+  rock: ' from-zinc-700 to-slate-100',
+  ghost: ' from-purple-800 to-slate-300',
+  dragon: ' from-orange-400 to-red-300',
+  dark: ' from-purple-800 to-indigo300',
+  steel: ' from-slate-400 to-slate-100',
   fairy: ' from-pink-400 to-yellow-100',
-  normal: ' from-yellow-400 to-yellow-100',
+  normal: ' from-amber-500 to-amber-300',
 }
 
 const PokemonCard = ({pokemonUrl}) => {
@@ -60,13 +60,13 @@ const PokemonCard = ({pokemonUrl}) => {
   },[]);
 
   return (
-    <Link to= {`/pokedex/${pokemon?.id}`} className={`text-center border-8 rounded-lg border-green-300 border-double ${bordersByType[pokemon?.types[0].type.name]}`}>
+    <Link to= {`/pokedex/${pokemon?.id}`} className={` p-2 text-center border-8 rounded-lg border-green-300 border-double ${bordersByType[pokemon?.types[0].type.name]}`}>
 
 
     {/* Top Seccion  */}
 
-      <section className={`bg-gradient-to-b  ${backgroundByType[pokemon?.types[0].type.name]} relative  h-[150px] `}>
-        <div className="absolute -bottom-16 w-[200px] left-1/2 -translate-x-1/2 " >
+      <section className={`bg-gradient-to-b rounded-md   ${backgroundByType[pokemon?.types[0].type.name]} relative  h-[150px] `}>
+        <div className="absolute -bottom-15 w-[220px] left-1/2 -translate-x-1/2  " >
           <img src={pokemon?.sprites.other["official-artwork"].front_default} alt="" />
         </div>
       </section>
