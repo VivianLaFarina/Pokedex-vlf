@@ -24,7 +24,8 @@ const Pokedex = () => {
   useEffect(() => {
     const URL = "https://pokeapi.co/api/v2/pokemon";
 
-    axios.get(URL)
+    axios
+    .get(URL)
       .then((res) => setPokemons(res.data.results))
       .catch((err) => console.log(err));
   }, []);
@@ -46,7 +47,11 @@ const Pokedex = () => {
 
     axios
       .get(URL)
-      .then((res) => console.log(res.data.pokemon))
+      .then((res) => {
+        const pokemonsByType = res.data.pokemon.map(pokemon =>
+          pokemon.pokemon)
+          setPokemons(pokemonsByType);
+      })
       .catch((err) => console.log(err));
       }
   }, [currentType]);
