@@ -25,9 +25,18 @@ const Pokedex = () => {
     axios.get(URL)
     .then((res)=> setPokemons(res.data.results))
     .catch((err)=> console.log(err))
-
-  
   }  ,[])
+
+  useEffect(() => {
+    const URL = "https://pokeapi.co/api/v2/type"
+
+    axios.get(URL)
+    .then((res)=> {
+      const netypes = res.data.results.map(type => type.name)
+     console.log(newTypes)
+  })
+  .catch ((err) => console.log(err))
+}, [])
 
   return (
     <section className='min-h-screen '>
