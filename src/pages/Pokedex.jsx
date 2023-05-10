@@ -8,7 +8,7 @@ const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
   const [pokemonName, setPokemonName] = useState("");
   const [types, setTypes] = useState([]);
-  const [currentType, setCurrentType] = useState([])
+  const [currentType, setCurrentType] = useState("")
 
   const nameTrainer = useSelector(store => store.nameTrainer);
 
@@ -22,14 +22,16 @@ const Pokedex = () => {
 
 
   useEffect(() => {
+    if(!currentType){
     const URL = "https://pokeapi.co/api/v2/pokemon";
 
     axios
     .get(URL)
-      .then((res) => setPokemons(res.data.results))
-      .catch((err) => console.log(err));
-  }, []);
+    .then((res) => setPokemons(res.data.results))
+    .catch((err) => console.log(err));}
+  }, [currentType]);
 
+  
   useEffect(() => {
     const URL = "https://pokeapi.co/api/v2/type";
 
@@ -43,11 +45,12 @@ const Pokedex = () => {
 
   useEffect(() => {
     if(currentType){
-      const URL = `https://pokeapi.co/api/v2/type/${currentType}`;
+      const URL = `https://pokeapi.co/api/v2/type/${currentType}/`;
 
     axios
       .get(URL)
       .then((res) => {
+        console.log(res)
         const pokemonsByType = res.data.pokemon.map(pokemon =>
           pokemon.pokemon)
           setPokemons(pokemonsByType);
@@ -74,7 +77,7 @@ const Pokedex = () => {
             <button>Search</button>
           </div>
 
-          <select onChange={(e) => setCurrentType(e.target.value)}>
+          <select className=" capitalize" onChange={(e) => setCurrentType(e.target.value)}>
             <option value="">All</option>
               {types.map((type) => ( 
               <option  className="capitalize" value={type} key={type}>
