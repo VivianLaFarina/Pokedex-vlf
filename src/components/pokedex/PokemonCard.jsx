@@ -1,6 +1,50 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 
+const bordersByType = {
+  grass: 'border-green-500',
+  fire: 'border-red-500',
+  water: 'border-blue-500',
+  electric: 'border-yellow-500',
+  ice: 'border-purple-500',
+  fighting: 'border-pink-500',
+  poison: 'border-red-500',
+  ground: 'border-yellow-500',
+  flying: 'border-blue-500',
+  psychic: 'border-pink-500',
+  bug: 'border-green-500',
+  rock: 'border-blue-500',
+  ghost: 'border-purple-500',
+  dragon: 'border-pink-500',
+  dark: 'border-red-500',
+  steel: 'border-yellow-500',
+  fairy: 'border-pink-500',
+  
+}
+
+const backgroundByType = {
+  grass:  'from-green-400 to-yellow-100',
+  fire: ' from-red-400 to-yellow-100',
+  water: ' from-blue-400 to-yellow-100',
+  electric: ' from-yellow-400 to-yellow-100',
+  ice: ' from-purple-400 to-yellow-100',
+  fighting: ' from-pink-400 to-yellow-100',
+  poison: ' from-red-400 to-yellow-100',
+  ground: ' from-yellow-400 to-yellow-100',
+  flying: ' from-blue-400 to-yellow-100',
+  psychic: ' from-pink-400 to-yellow-100',
+  bug: ' from-green-400 to-yellow-100',
+  rock: ' from-blue-400 to-yellow-100',
+  ghost: ' from-purple-400 to-yellow-100',
+  dragon: ' from-pink-400 to-yellow-100',
+  dark: ' from-red-400 to-yellow-100',
+  steel: ' from-yellow-400 to-yellow-100',
+  fairy: ' from-pink-400 to-yellow-100',
+
+
+ 
+
+}
 
 const PokemonCard = ({pokemonUrl}) => {
   const [pokemon, setPokemon] = useState()
@@ -15,12 +59,12 @@ const PokemonCard = ({pokemonUrl}) => {
   },[])
 
   return (
-    <article className="text-center border-8 rounded-lg border-green-300 border-double ">
+    <article className={`text-center border-8 rounded-lg border-green-300 border-double ${bordersByType[pokemon?.types[0].type.name]} `}>
 
 
     {/* Top Seccion  */}
 
-      <section className="bg-gradient-to-b from-green-400 to-yellow-100 relative  h-[150px] ">
+      <section className={`bg-gradient-to-b ${bordersByType[pokemon?.types[0].type.name]} relative  h-[150px] `}>
         <div className="absolute -bottom-16 w-[200px] left-1/2 -translate-x-1/2 " >
           <img src={pokemon?.sprites.other["official-artwork"].front_default} alt="" />
         </div>
