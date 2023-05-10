@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 
 const bordersByType = {
   grass: 'border-green-500',
-  fire: 'border-red-500',
+  fire: 'border-red-600',
   water: 'border-Sky-500',
   electric: 'border-yellow-300',
   ice: 'border-purple-500',
@@ -19,14 +19,13 @@ const bordersByType = {
   dark: 'border-red-500',
   steel: 'border-yellow-500',
   fairy: 'border-pink-500',
-  
 }
 
 bordersByType["grass"]
 
 const backgroundByType = {
   grass:  'from-green-400 to-yellow-100',
-  fire: ' from-red-400 to-orange-200',
+  fire: ' from-red-400 to-orange-300',
   water: ' from-sky-400 to-cyan-100',
   electric: ' from-yellow-300 to-yellow-50',
   ice: ' from-blue-700 to-cyan-50',
@@ -42,10 +41,6 @@ const backgroundByType = {
   dark: ' from-red-400 to-yellow-100',
   steel: ' from-yellow-400 to-yellow-100',
   fairy: ' from-pink-400 to-yellow-100',
-
-
- 
-
 }
 
 const PokemonCard = ({pokemonUrl}) => {
