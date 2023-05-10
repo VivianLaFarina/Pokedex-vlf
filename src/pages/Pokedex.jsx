@@ -37,7 +37,7 @@ const Pokedex = () => {
         </form>
                  {/* Pokemon list Seccion  */}
 
-        <section className='px-2'>
+        <section className='px-2 py-10 grid gap-6 grid-cols-1-[300px]'>
 
          {
           pokemons.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} /> )

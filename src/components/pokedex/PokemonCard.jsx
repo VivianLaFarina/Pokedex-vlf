@@ -15,20 +15,20 @@ const PokemonCard = ({pokemonUrl}) => {
   },[])
 
   return (
-    <article className="text-center border-8 border-green-300 border-double">
+    <article className="text-center border-8 rounded-lg border-green-300 border-double ">
 
 
     {/* Top Seccion  */}
 
-      <section className="bg-gradient-to-b from-green-400 to-yellow-100 ">
-        <div>
+      <section className="bg-gradient-to-b from-green-400 to-yellow-100 relative  h-[150px] ">
+        <div className="absolute -bottom-16 w-[200px] left-1/2 -translate-x-1/2 " >
           <img src={pokemon?.sprites.other["official-artwork"].front_default} alt="" />
         </div>
       </section>
 
-   {/* Top Seccion */}
+   {/* Button Seccion */}
       <section>
-        <h3>{pokemon?.name}</h3>
+        <h3 className="mt-16 ">{pokemon?.name}</h3>
         <h4>{types}</h4>
         <span>Type</span>
 
