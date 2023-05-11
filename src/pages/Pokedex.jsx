@@ -35,7 +35,7 @@ const Pokedex = () => {
 
      const lastPage = Math.ceil(pokemonsByName.length / POKEMONS_PER_PAGE) || 1
 
-     const PAGES_PER_BLOCK = 3
+     const PAGES_PER_BLOCK = 5
 
      const actualBlock = Math.ceil(currentPage / PAGES_PER_BLOCK)
 
@@ -134,16 +134,20 @@ const Pokedex = () => {
         </form>
       </section>
 
-      {/* pagination*/}
+      {/* Pagination*/}
 
-      <ul className="flex gap-2 justify-center py-4">
+      <ul className="flex gap-2 justify-center py-4 px-2 flex-wrap ">
+        {/*  Pagination list */}
 
-        <li  onClick={ handleClickPreviusPage} className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer">{"<"}</li>
+        <li  onClick={ handleClickPreviusPage} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{"<"}</li>
         {
 
-          pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer ${numberPage == currentPage && "bg-red-400"}`} key={numberPage}>{numberPage}</li>)
+          pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer ${numberPage == currentPage && "bg-red-400"}`} key={numberPage}>{numberPage}</li>)
         }
-        <li onClick={handleClickNextPage} className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer">{">"}</li>
+         {/*  Last Page */}
+        <li onClick={() => setCurrentPage (lastPage)} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{">"}</li>
+
+        <li  onClick={ handleClickPreviusPage} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{">>"}</li>
       </ul>
 
 
