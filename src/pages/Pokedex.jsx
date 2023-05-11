@@ -9,6 +9,9 @@ const Pokedex = () => {
   const [pokemonName, setPokemonName] = useState("");
   const [types, setTypes] = useState([]);
   const [currentType, setCurrentType] = useState("")
+  const [currentPage, setCurrentPage] = useState([1])
+
+  
 
   const nameTrainer = useSelector(store => store.nameTrainer);
 
@@ -19,6 +22,19 @@ const Pokedex = () => {
   }
 
   const pokemonsByName = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(pokemonName.toLowerCase()))
+
+  const pagination = () => {
+    //pokemon x page
+    const POKEMONS_PER_PAGE = 20
+
+    const sliceStart = (currentPage -1 ) * POKEMONS_PER_PAGE
+
+    const sliceEnd = sliceStart + POKEMONS_PER_PAGE
+
+    const pokemonInPage = pokemonName.slice(sliceStart, sliceEnd)
+
+    Math.ceil(pokemonName.length / POKEMONS_PER_PAGE)
+  }
 
 
   useEffect(() => {

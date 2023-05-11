@@ -87,9 +87,9 @@ const getPercentStatBar = (stat_base) => {
                         <h3 className=" text-center border-gray-200 border-2 mt-8 ">#{pokemon?.id}</h3>
                     </div>
 
-                    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                    <div className="grid grid-cols-[1fr_auto_1fr]">
                         <hr />
-                        <h2 className=" capitalize font-bold m-4 text-xl">{pokemon?.name}</h2>
+                        <h2 className=" font-bold m-6  text-xl ">{pokemon?.name}</h2>
                     </div>
 
                     <div className="flex justify-center  gap-4 text-center ">
