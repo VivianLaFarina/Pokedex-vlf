@@ -25,7 +25,7 @@ const Pokedex = () => {
 
   const paginationLoginc = () => {
     //pokemon x page
-    const POKEMONS_PER_PAGE = 16
+    const POKEMONS_PER_PAGE = 9
 
     const sliceStart = (currentPage -1 ) * POKEMONS_PER_PAGE
 
@@ -35,7 +35,7 @@ const Pokedex = () => {
 
      const lastPage = Math.ceil(pokemonsByName.length / POKEMONS_PER_PAGE) || 1
 
-     const PAGES_PER_BLOCK = 5
+     const PAGES_PER_BLOCK = 2
 
      const actualBlock = Math.ceil(currentPage / PAGES_PER_BLOCK)
 
@@ -105,6 +105,9 @@ const Pokedex = () => {
       }
   }, [currentType]);
 
+  useEffect (() => {
+    setCurrentPage(1)
+  },[pokemonName, currentType])
 
   return (
     <section className='min-h-screen'>
@@ -134,21 +137,7 @@ const Pokedex = () => {
         </form>
       </section>
 
-      {/* Pagination*/}
 
-      <ul className="flex gap-2 justify-center py-4 px-2 flex-wrap ">
-        {/*  Pagination list */}
-
-        <li  onClick={ handleClickPreviusPage} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{"<"}</li>
-        {
-
-          pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer ${numberPage == currentPage && "bg-red-400"}`} key={numberPage}>{numberPage}</li>)
-        }
-         {/*  Last Page */}
-        <li onClick={() => setCurrentPage (lastPage)} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{">"}</li>
-
-        <li  onClick={ handleClickPreviusPage} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{">>"}</li>
-      </ul>
 
 
 
@@ -157,6 +146,29 @@ const Pokedex = () => {
         {
           pokemonInPage.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />)
         }
+      </section>
+            {/* Pagination*/}
+
+            <ul className="flex gap-2 justify-center py-4 px-2 flex-wrap ">
+        {/*  Pagination list */}
+
+
+        <li  onClick={() => setCurrentPage(1) } className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{"<<"}</li>
+        <li  onClick={ handleClickPreviusPage} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{"<"}</li>
+        {
+
+          pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer ${numberPage == currentPage && "bg-red-400"}`} key={numberPage}>{numberPage}</li>)
+        }
+        
+         {/*  Last Page */}
+       
+
+        <li  onClick = {handleClickNextPage} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{">"}</li>
+        <li onClick={() => setCurrentPage (lastPage)} className="p-3 bg-red-600 font-bold text-white rounded-xl  cursor-pointer">{">>"}</li>
+      </ul>
+      <section>
+        {/* foter */}
+
       </section>
 
     </section>

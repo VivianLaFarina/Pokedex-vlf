@@ -26,11 +26,11 @@ const backgroundByType = {
     normal: ' from-amber-500 to-amber-300',
 }
 
-const bordersByType = {
-    grass: 'border-green-500',
-    fire: 'border-red-600',
-    water: 'border-sky-500',
-    electric: 'border-yellow-100',
+const textByType = {
+    grass: 'text-green-500',
+    fire: 'text-red-600',
+    water: 'text-sky-500',
+    electric: 'text-yellow-100',
     ice: 'border-cyan-300',
     fighting: 'border-yellow-500',
     poison: 'border-purple-900',
@@ -71,8 +71,8 @@ const getPercentStatBar = (stat_base) => {
 
         <Header />
 
-        <section className=" px-8 py-14  ">
-            <article className="max-w-[700px] mx-auto shadow-2xl ">
+        <section className=" px-8 py-14   ">
+            <article className="max-w-[700px] mx-auto shadow-2xl pb-4 rounded-lg ">
                 
                 {/*Top seccion  */}
                 <section  className={`bg-gradient-to-t rounded-md  ${backgroundByType[pokemon?.types[0].type.name]} relative  h-[190px] `}>
@@ -84,12 +84,12 @@ const getPercentStatBar = (stat_base) => {
                 {/* General Information*/}
                 <section className="px-24 ">
                     <div className="text-center ">
-                        <h3 className=" text-center border-gray-200 border-2 mt-8 ">#{pokemon?.id}</h3>
+                        <h3 className=" text-center border-gray-200 border-2 mt-8  "># {pokemon?.id}</h3>
                     </div>
 
-                    <div className="grid grid-cols-[1fr_auto_1fr]">
+                    <div className="grid grid-cols-[1fr_auto_1fr] ">
                         <hr />
-                        <h2 className=" font-bold m-6  text-xl ">{pokemon?.name}</h2>
+                        <h2 className={` font-bold m-6  text-xl  ${textByType[pokemon?.types[0].type.name]}`} >{pokemon?.name}</h2>
                     </div>
 
                     <div className="flex justify-center  gap-4 text-center ">
@@ -110,11 +110,11 @@ const getPercentStatBar = (stat_base) => {
                         {/* types*/}
                         <section className="text-center m-4 font-medium">
                             <h3>Types</h3>
-                            <section className="grid grid-cols-2 gap-4 mt-2">
+                            <section className="grid grid-cols-2 gap-4 mt-2 ">
                                 {
                                     pokemon?.types.map(type => <article 
-                                        className=" p-2 px-8 border-[1px]
-                                         border-gray-300 " key={type.type.name}>{type.type.name}</article> )
+                                        className={` bg-gradient-to-t p-2 px-8 border-[1px]
+                                         border-gray-300 ${backgroundByType[type.type.name]} ` }key={type.type.name}>{type.type.name}</article> )
                                 }
                             </section>
 
@@ -139,9 +139,9 @@ const getPercentStatBar = (stat_base) => {
 
 
                 {/*seccion de stats*/}
-                <section className=" px-2 ">
+                <section className=" px-2  ">
                   <h3 className="font-bold capitalize text-xl  py-10 text-center">Stats</h3>
-                  <section className=" grid-cols-2 gap-1 px-2  font-medium border-2 rounded-md">
+                  <section className=" grid-cols-2 gap-1 p-3 font-medium border-2 rounded-md">
                     {    
                       pokemon?.stats.map(stat => (
                         <article  key={stat.stat.name}>
