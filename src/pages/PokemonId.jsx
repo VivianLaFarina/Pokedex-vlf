@@ -67,29 +67,29 @@ const getPercentStatBar = (stat_base) => {
 }
 
   return (
-    <section className=" py-15">
+    <section className="  capitalize truncate">
 
         <Header />
-        <section className="  bg-zinc-100 rounded-3xl py-12">
-        <section className=" px-8 py-4 capitalize ">
-            <article className="max-w-[900px] mx-auto">
+
+        <section className=" px-8 py-14  ">
+            <article className="max-w-[700px] mx-auto shadow-2xl ">
                 
                 {/*Top seccion  */}
                 <section  className={`bg-gradient-to-t rounded-md  ${backgroundByType[pokemon?.types[0].type.name]} relative  h-[190px] `}>
-                    <div className=" w-[250px] mx-auto absolute left-1/2 -translate-x-1/2 -top-16 ">
+                    <div className=" w-[250px] mx-auto absolute left-1/2 -translate-x-1/2 -top-20  ">
                         <img src={pokemon?.sprites.other["official-artwork"].front_default} alt="" />
                     </div>
                 </section>
 
                 {/* General Information*/}
-                <section>
-                    <div>
-                        <h3 className=" text-center border-gray-200 border-2 mt-14 ">#{pokemon?.id}</h3>
+                <section className="px-24 ">
+                    <div className="text-center ">
+                        <h3 className=" text-center border-gray-200 border-2 mt-8 ">#{pokemon?.id}</h3>
                     </div>
 
                     <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
                         <hr />
-                        <h2 className=" capitalize font-bold m-4">{pokemon?.name}</h2>
+                        <h2 className=" capitalize font-bold m-4 text-xl">{pokemon?.name}</h2>
                     </div>
 
                     <div className="flex justify-center  gap-4 text-center ">
@@ -106,11 +106,11 @@ const getPercentStatBar = (stat_base) => {
                     </div>
                     </section>
 
-                    <section className=" grid  sd:grid-cols-2 gap-4">
+                    <section className=" grid  sd:grid-cols-2 gap2">
                         {/* types*/}
-                        <section className="text-center">
+                        <section className="text-center m-4 font-medium">
                             <h3>Types</h3>
-                            <section className="grid grid-cols-2 gap-4 mt-4">
+                            <section className="grid grid-cols-2 gap-4 mt-2">
                                 {
                                     pokemon?.types.map(type => <article 
                                         className=" p-2 px-8 border-[1px]
@@ -121,9 +121,9 @@ const getPercentStatBar = (stat_base) => {
 
                     </section>
                         {/* abilities*/}
-                          <section className="text-center">
+                          <section className="text-center px-4">
                             <h3>Abilities</h3>
-                            <section className="grid grid-cols-2 gap-4 mt-4">
+                            <section className="grid grid-cols-2 gap-4 mt-2">
                                 {
                                     pokemon?.abilities.map(ability => <article 
                                         className=" p-2 px-8 border-[1px]
@@ -139,15 +139,15 @@ const getPercentStatBar = (stat_base) => {
 
 
                 {/*seccion de stats*/}
-                <section>
-                  <h3>Stats</h3>
-                  <section className=" grid-cols-2 gap-2">
+                <section className=" px-2 ">
+                  <h3 className="font-bold capitalize text-xl  py-10 text-center">Stats</h3>
+                  <section className=" grid-cols-2 gap-1 px-2  font-medium border-2 rounded-md">
                     {    
                       pokemon?.stats.map(stat => (
                         <article  key={stat.stat.name}>
                             <section className="flex justify-between">
-                                <h5 className="">{stat.stat.name}</h5>
-                                <span>{stat.base_stat}/250</span>
+                                <h5 className=" px-2 py-1">{stat.stat.name}</h5>
+                                <span className=" font-light">{stat.base_stat}/250</span>
                             </section>
                             <div className="bg-gray-200 h-6 rounded-lg ">
                                 <div style={{"width": getPercentStatBar(stat.base_stat)}} className={`h-full bg-gradient-to-r from-yellow-50 to-yellow-300`}></div>
@@ -162,7 +162,6 @@ const getPercentStatBar = (stat_base) => {
 
 
             </article>
-        </section>
         </section>
     </section>
 
