@@ -35,7 +35,7 @@ const Pokedex = () => {
 
      const lastPage = Math.ceil(pokemonsByName.length / POKEMONS_PER_PAGE) || 1
 
-     const PAGES_PER_BLOCK = 5
+     const PAGES_PER_BLOCK = 3
 
      const actualBlock = Math.ceil(currentPage / PAGES_PER_BLOCK)
 
@@ -141,7 +141,7 @@ const Pokedex = () => {
         <li  onClick={ handleClickPreviusPage} className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer">{"<"}</li>
         {
 
-          pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer" key={numberPage}>{numberPage}</li>)
+          pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer ${numberPage == currentPage && "bg-red-400"}`} key={numberPage}>{numberPage}</li>)
         }
         <li onClick={handleClickNextPage} className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer">{">"}</li>
       </ul>
