@@ -23,9 +23,9 @@ const Pokedex = () => {
 
   const pokemonsByName = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(pokemonName.toLowerCase()))
 
-  const pagination = () => {
+  const paginationLoginc = () => {
     //pokemon x page
-    const POKEMONS_PER_PAGE = 20
+    const POKEMONS_PER_PAGE = 16
 
     const sliceStart = (currentPage -1 ) * POKEMONS_PER_PAGE
 
@@ -33,9 +33,9 @@ const Pokedex = () => {
 
     const pokemonInPage = pokemonsByName.slice(sliceStart, sliceEnd)
 
-     const LastPage = Math.ceil(pokemonsByName.length / POKEMONS_PER_PAGE) || 1
+     const lastPage = Math.ceil(pokemonsByName.length / POKEMONS_PER_PAGE) || 1
 
-     const PAGES_PER_BLOCK = 9
+     const PAGES_PER_BLOCK = 5
 
      const actualBlock = Math.ceil(currentPage / PAGES_PER_BLOCK)
 
@@ -44,16 +44,18 @@ const Pokedex = () => {
      const minPage = (actualBlock -1) * PAGES_PER_BLOCK + 1
      const maxPage  = actualBlock * PAGES_PER_BLOCK
      for (let i = minPage; i <= maxPage; i++){
-      if (i <= LastPage){
+      if (i <= lastPage){
       pagesInBlock.push(i) 
      }
   }
+  return {pokemonInPage, lastPage, pagesInBlock}
 }
 
+  const {lastPage, pagesInBlock, pokemonInPage} = paginationLoginc ()
 
   useEffect(() => {
     if(!currentType){
-    const URL = "https://pokeapi.co/api/v2/pokemon";
+    const URL = "https://pokeapi.co/api/v2/pokemon?limit=1281";
 
     axios
     .get(URL)
@@ -118,10 +120,21 @@ const Pokedex = () => {
         </form>
       </section>
 
+      {/* pagination*/}
+
+      <ul className="flex gap-2 justify-center py-4">
+        {
+
+          pagesInBlock.map(numberPage => <li className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer" key={numberPage}>{numberPage}</li>)
+        }
+      </ul>
+
+
+
       {/* Pokemon list Seccion  */}
       <section className="px-2 py-10 grid gap-6 grid-cols-[280px]">
         {
-          pokemonsByName.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />)
+          pokemonInPage.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />)
         }
       </section>
 
