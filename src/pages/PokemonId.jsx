@@ -24,10 +24,12 @@ const getPercentStatBar = (stat_base) => {
 }
 
   return (
-    <section>
+    <section className=" ">
+
         <Header />
-        <section className=" px-10 py-10 capitalize ">
-            <article>
+        <section className=" bg-zinc-100 rounded-3xl">
+        <section className=" px-10 py-1 capitalize ">
+            <article className="max-w-[900px] mx-auto">
                 
                 {/*Top seccion  */}
                 <section >
@@ -61,7 +63,7 @@ const getPercentStatBar = (stat_base) => {
                     </div>
                     </section>
 
-                    <section>
+                    <section className=" grid  sd:grid-cols-2 gap-4">
                         {/* types*/}
                         <section className="text-center">
                             <h3>Types</h3>
@@ -77,12 +79,12 @@ const getPercentStatBar = (stat_base) => {
                     </section>
                         {/* abilities*/}
                           <section className="text-center">
-                            <h3>Habilities</h3>
+                            <h3>Abilities</h3>
                             <section className="grid grid-cols-2 gap-4 mt-4">
                                 {
-                                    pokemon?.types.map(type => <article 
+                                    pokemon?.abilities.map(ability => <article 
                                         className=" p-2 px-8 border-[1px]
-                                         border-gray-300 " key={type.type.name}>{type.type.name}</article> )
+                                         border-gray-300 " key={ability.ability.name}>{ability.ability.name}</article> )
                                 }
                             </section>
 
@@ -118,8 +120,9 @@ const getPercentStatBar = (stat_base) => {
 
             </article>
         </section>
-
+        </section>
     </section>
+
   )
 }
 
