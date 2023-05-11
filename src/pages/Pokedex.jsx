@@ -52,6 +52,14 @@ const Pokedex = () => {
 }
 
   const {lastPage, pagesInBlock, pokemonInPage} = paginationLoginc ()
+  
+  const handleClickPreviusPage = () => {
+    const newCurrentPage = currentPage -1
+    if(newCurrentPage >= 1){
+      setCurrentPage(newCurrentPage)
+    }
+    setCurrentPage(newCurrentPage)
+  }
 
   useEffect(() => {
     if(!currentType){
@@ -123,10 +131,13 @@ const Pokedex = () => {
       {/* pagination*/}
 
       <ul className="flex gap-2 justify-center py-4">
+
+        <li className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer">{"<"}</li>
         {
 
-          pagesInBlock.map(numberPage => <li className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer" key={numberPage}>{numberPage}</li>)
+          pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer" key={numberPage}>{numberPage}</li>)
         }
+        <li className="p-3 bg-red-600 font-bold text-white rounded-md  cursor-pointer">{">"}</li>
       </ul>
 
 
