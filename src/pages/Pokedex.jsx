@@ -115,15 +115,15 @@ const Pokedex = () => {
 
       {/* Filter Seccion  */}
       <section className='py-6 px-7'>
-        <h3>Welcome {nameTrainer}, here you can find your favorite Pokemon!</h3>
+        <h3 className=" text-center text-3xl ">Welcome {nameTrainer}, here you can find your favorite Pokemon!</h3>
 
-        <form onSubmit={handleSubmit}>
+        <form  className="flex justify-between" onSubmit={handleSubmit}>
           <div>
             <input
               id="pokemonName"
               type="text"
               placeholder="Search your Pokemon" />
-            <button>Search</button>
+            <button className=" rounded-lg border-2 text-white font-bold bg-red-500 border-red-500">Search</button>
           </div>
 
           <select className=" capitalize" onChange={(e) => setCurrentType(e.target.value)}>
