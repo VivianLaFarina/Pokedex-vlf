@@ -31,10 +31,24 @@ const Pokedex = () => {
 
     const sliceEnd = sliceStart + POKEMONS_PER_PAGE
 
-    const pokemonInPage = pokemonName.slice(sliceStart, sliceEnd)
+    const pokemonInPage = pokemonsByName.slice(sliceStart, sliceEnd)
 
-    Math.ceil(pokemonName.length / POKEMONS_PER_PAGE)
+     const LastPage = Math.ceil(pokemonsByName.length / POKEMONS_PER_PAGE) || 1
+
+     const PAGES_PER_BLOCK = 9
+
+     const actualBlock = Math.ceil(currentPage / PAGES_PER_BLOCK)
+
+     const pagesInBlock = []
+
+     const minPage = (actualBlock -1) * PAGES_PER_BLOCK + 1
+     const maxPage  = actualBlock * PAGES_PER_BLOCK
+     for (let i = minPage; i <= maxPage; i++){
+      if (i <= LastPage){
+      pagesInBlock.push(i) 
+     }
   }
+}
 
 
   useEffect(() => {
