@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <section className='relative px-5 py-4  '>
         <div className='h-16  bg-red-600 rounded-t-2xl grid items-end'>
-            <div className='max-w-[205px] sm:max-w-[300px] px-1 '>
+            <div className=' max-w-[205px] sm:max-w-[300px] px-1 '>
                 <img src="/images/pokedex.png" alt="" />
             </div>
         </div>
