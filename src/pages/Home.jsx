@@ -34,7 +34,7 @@ const Home = () => {
                 <div className=' max-w-[250px] sm:max-w-[700px] '>
                     <img src="/images/pokedex.png" alt="" />
                 </div>
-                <h2 className=' font-extrabold text-center text-red-600 text-5xl py-11'> Hellor trainer !</h2>
+                <h2 className=' font-extrabold text-center text-red-600 text-5xl py-11'> Hello PokeLover !</h2>
                 <p className=' text-3xl font-semibold text-center  text-neutral-800'> To start, Identify Yourself </p>
                  <form  className='m-4 flex justify-center'  onSubmit={handlesubmit}>
                     <input className='  rounded-l-xl border-4  border-slate-200 shadow-lg  m-2 text-3xl'   id='nameTrainer' type="text" placeholder='    Your Name......' />
