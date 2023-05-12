@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
+import Footer from "../components/Footer"
 import Header from "../components/pokedex/Header"
 
 
@@ -71,8 +72,8 @@ const getPercentStatBar = (stat_base) => {
 
         <Header />
 
-        <section className=" px-8 py-14   ">
-            <article className="max-w-[700px] mx-auto shadow-2xl pb-4 rounded-lg ">
+        <section className=" px-8 py-14  ">
+            <article className="max-w-[700px] mx-auto shadow-2xl  pb4 rounded-lg ">
                 
                 {/*Top seccion  */}
                 <section  className={`bg-gradient-to-t rounded-md  ${backgroundByType[pokemon?.types[0].type.name]} relative  h-[190px] `}>
@@ -84,12 +85,12 @@ const getPercentStatBar = (stat_base) => {
                 {/* General Information*/}
                 <section className="px-24 ">
                     <div className="text-center ">
-                        <h3 className=" text-center border-gray-200 border-2 mt-8  "># {pokemon?.id}</h3>
+                        <h3 className=" text-center border-gray-200 border-2 mt-4  font-semibold  "># {pokemon?.id}</h3>
                     </div>
 
                     <div className="grid grid-cols-[1fr_auto_1fr] ">
                         <hr />
-                        <h2 className={` font-bold m-6  text-xl  ${textByType[pokemon?.types[0].type.name]}`} >{pokemon?.name}</h2>
+                        <h2 className={` font-bold m-4  text-xl  ${textByType[pokemon?.types[0].type.name]}`} >{pokemon?.name}</h2>
                     </div>
 
                     <div className="flex justify-center  gap-4 text-center ">
@@ -108,9 +109,9 @@ const getPercentStatBar = (stat_base) => {
 
                     <section className=" grid  sd:grid-cols-2 gap2">
                         {/* types*/}
-                        <section className="text-center m-4 font-medium">
-                            <h3>Types</h3>
-                            <section className="grid grid-cols-2 gap-4 mt-2 ">
+                        <section className="text-center m-2 font-medium">
+                            <h3 >Types</h3>
+                            <section className="grid grid-cols-2 gap-4 mt-1 ">
                                 {
                                     pokemon?.types.map(type => <article 
                                         className={` bg-gradient-to-t p-2 px-8 border-[1px]
@@ -163,6 +164,7 @@ const getPercentStatBar = (stat_base) => {
 
             </article>
         </section>
+        <Footer/>
     </section>
 
   )

@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import Footer from "../components/Footer"
 import Header from '../components/pokedex/Header'
 import PokemonCard from '../components/pokedex/PokemonCard'
 
@@ -110,26 +111,27 @@ const Pokedex = () => {
   },[pokemonName, currentType])
 
   return (
-    <section className='min-h-screen'>
+
+    <section className='min-h-screen p-6   '>
       <Header />
 
       {/* Filter Seccion  */}
-      <section className='py-6 px-7'>
-        <h3 className=" text-center text-3xl ">Welcome {nameTrainer}, here you can find your favorite Pokemon!</h3>
+      <section className='py-5  '>
+        <h3 className=" text-center text-3xl text-gray-600 font-medium">Welcome {nameTrainer}, here you can find your favorite Pokemon!</h3>
 
-        <form  className="flex justify-between" onSubmit={handleSubmit}>
-          <div>
-            <input
+        <form  className="px-10 flex justify-center gap-4 m-8  " onSubmit={handleSubmit}>
+          <div className=" border-4 rounded-xl text-gray-100 text-2xl flex gap-1">
+            <input className=" bg-white p-1 text-l"
               id="pokemonName"
               type="text"
               placeholder="Search your Pokemon" />
-            <button className=" rounded-lg border-2 text-white font-bold bg-red-500 border-red-500">Search</button>
+            <button className=" rounded-r-lg text-white  bg-red-500 p-2">  Find</button>
           </div>
 
-          <select className=" capitalize" onChange={(e) => setCurrentType(e.target.value)}>
-            <option value="">All</option>
+          <select className=" text-2xl capitalize  rounded-xl b  bg-red-500 text-center text-white " onChange={(e) => setCurrentType(e.target.value)}>
+            <option  value="">All</option>
               {types.map((type) => ( 
-              <option  className="capitalize" value={type} key={type}>
+              <option   value={type} key={type}>
                 {type}
               </option>
               ))}
@@ -142,7 +144,7 @@ const Pokedex = () => {
 
 
       {/* Pokemon list Seccion  */}
-      <section className="px-2 py-10 grid gap-6 grid-cols-[280px]">
+      <section className="px-8 py-10 grid gap-6 m:grid-cols-[280px]">
         {
           pokemonInPage.map(pokemon => <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />)
         }
@@ -170,6 +172,7 @@ const Pokedex = () => {
         {/* foter */}
 
       </section>
+      <Footer />
 
     </section>
   )
